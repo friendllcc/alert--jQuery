@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		height: 900px;
+	}
+		.open{
+			margin: auto;
+			width: 200px;
+			height: 100px;
+			background: #FBFBFB;
+			border:solid 1px black;
+			position: relative;
+			display: none;
+		}
+		.open img{
+			position: absolute;
+			right: 0;
+			top:0;
+		}
+		.open img:hover{
+			background-color: red;
+		}
+	</style>
+</head>
+<body onClick="none()">
+	<input type="button" value="点击我" >
+	<div class="open" name="alert" >
+		<img src="images/cha.png" >
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$("input").click(function(event){
+			$("div").show();
+			  event.stopPropagation();
+		})
+		$("div").click(function(event){
+			$("div").show();
+			  event.stopPropagation();
+		})
+		$("img").click(function(event){
+			$("div").hide();
+			  event.stopPropagation();
+		})
+		$("body").click(function(){
+			$("div").hide();			  
+		})
+	</script>
+</body>
+</html>
