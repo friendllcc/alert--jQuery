@@ -26,27 +26,50 @@
 		}
 	</style>
 </head>
-<body onClick="none()">
-	<input type="button" value="点击我" >
-	<div class="open" name="alert" >
-		<img src="images/cha.png" >
+<body>
+	<input type="button" class="btn1" value="点击我" >
+	<input type="button" class="btn2" value="点击我弹出第二个" >
+	<div class="open open1" >
+		<img class="img1" src="images/cha.png" >
+	</div>
+	<div class="open open2" >
+		<img class="img2" src="images/cha.png" >
 	</div>
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
-		$("input").click(function(event){
-			$("div").show();
+		$("input.btn1").click(function(event){
+			if($("div.open2").css('display')=='none')
+				$("div.open1").show();
+			else
+				$("div.open2").hide();
 			  event.stopPropagation();
 		})
-		$("div").click(function(event){
-			$("div").show();
+		$("input.btn2").click(function(event){
+			if($("div.open1").css('display')=='none')
+				$("div.open2").show();
+			else
+				$("div.open1").hide();
+			event.stopPropagation();
+		})
+		$("div.open1").click(function(event){
+			$("div.open1").show();
 			  event.stopPropagation();
 		})
-		$("img").click(function(event){
-			$("div").hide();
+		$("div.open2").click(function(event){
+			$("div.open2").show();
+			  event.stopPropagation();
+		})
+		$("img.img1").click(function(event){
+			$("div.open1").hide();
+			  event.stopPropagation();
+		})
+		$("img.img2").click(function(event){
+			$("div.open2").hide();
 			  event.stopPropagation();
 		})
 		$("body").click(function(){
-			$("div").hide();			  
+			$("div.open1").hide();
+			$("div.open2").hide();			  
 		})
 	</script>
 </body>
